@@ -1,0 +1,14 @@
+body {
+    background-color: #6F9FB6;
+}
+
+#ayuda {
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+#cartas {
+    padding-top: 100px;
+}
+
+.card {}
