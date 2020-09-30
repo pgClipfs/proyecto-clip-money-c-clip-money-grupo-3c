@@ -9,6 +9,9 @@ body {
 
 #cartas {
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-.card {}
+.jumbotron {
+      background-color: rgb(103, 118, 126);
+}
