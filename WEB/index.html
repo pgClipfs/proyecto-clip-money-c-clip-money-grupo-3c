@@ -40,144 +40,146 @@
 
 <body>
 
- <!--Modal: Login / Register Form-->
- <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
- aria-hidden="true">
- <div class="modal-dialog cascading-modal" role="document">
-     <!--Content-->
-     <div class="modal-content">
+    <!--Modal: Login / Register Form-->
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
 
-         <!--Modal cascading tabs-->
-         <div class="modal-c-tabs">
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
 
-             <!-- Nav tabs -->
-             <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-                 <li class="nav-item">
-                     <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i
-                             class="fas fa-user mr-1"></i>
-                         Login</a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i
-                             class="fas fa-user-plus mr-1"></i>
-                         Registrarse</a>
-                 </li>
-             </ul>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i
+                                    class="fas fa-user mr-1"></i>Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i
+                                    class="fas fa-user-plus mr-1"></i>
+                                Registrarse</a>
+                        </li>
+                    </ul>
 
-             <!-- Tab panels -->
-             <div class="tab-content">
-                 <!--Panel 7-->
-                 <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
-                     <!--Body-->
+                            <!--Body-->
 
-                     <div class="modal-body mb-1">
+                            <div class="modal-body">
 
-                         <div class="md-form form-sm mb-5">
-                             <input type="email" placeholder="Correo" id="modalLRInput10"
-                                 class="form-control form-control-sm validate">
-                             <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
-
-
-                             <div class="md-form form-sm mb-4">
-                                 <input type="password" placeholder="Contraseña" id="modalLRInput11"
-                                     class="form-control form-control-sm validate">
-                                 <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
-                             </div>
-                             <div class="text-center">
-                                 <button class="btn btn-info">Iniciar sesión</button>
-                             </div>
-                         </div>
-                     </div>
-                     <!--Footer-->
-                     <div class="modal-footer">
-                         <div class="options text-center text-md-left mt-1">
-                             <p>¿No tienes cuenta? <a href="#" class="blue-text">Registrarse</a></p>
-                             <p>Olvidaste tú contraseña? <a href="#" class="blue-text">Click aquí.</a></p>
-                         </div>
-                         <button type="button" class="btn btn-outline-info waves-effect ml-auto"
-                             data-dismiss="modal">Close</button>
-                     </div>
-
-                 </div>
-                 <!--/.Panel 7-->
-
-                 <!--Panel 8-->
-                 <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                     <!--Body-->
-                     <div class="container">
-                         <div class="row">
-                             <div class="col-sm">
-                                 <br>
-                                 <input type="text" placeholder="nombre" class="form-control">
-                             </div>
-                             <div class="col-sm">
-                                 <br>
-                                 <input type="text" placeholder="Apellido" class="form-control">
-                             </div>
-                         </div>
-                         <div class="md-form form-sm">
-                             <br>
-                             <input type="email" id="modalLRInput12" placeholder="Correo"
-                                 class="form-control form-control-sm validate">
-                             <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
-                         </div>
-                         <div>
-                             <div class="row">
-                                 <div class="col-sm">
-                                     <select class="browser-default custom-select">
-                                         <option selected="">Tipo de documento</option>
-                                         <option value="1">CUIT/CUIL</option>
-                                         <option value="2">DNI</option>
-                                     </select>
-                                 </div>
-                                 <div class="col-sm">
-                                     <input type="number" id="modalLRInput12" placeholder="DNI"
-                                         class="form-control">
-                                 </div>
-                             </div>
-                             <div>
-                                 <br>
-                                 <input type="password" id="modalLRInput13" placeholder="Contraseña"
-                                     class="form-control form-control-sm validate">
-                                 <label data-error="wrong" data-success="right" for="modalLRInput13"></label>
-                             </div>
-                             <div class="md-form form-sm">
-                                 <input type="password" id="modalLRInput14" placeholder="Repetir contraseña"
-                                     class="form-control form-control-sm validate">
-                                 <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
-                             </div>
-                             <div class="text-center form-sm mt-2">
-                                 <button class="btn btn-info">Registrarse</button>
-
-                             </div>
-                         </div>
-
-                     </div>
-                     <!--Footer-->
-                     <br>
-                     <div class="modal-footer">
-                         <div class="options text-right">
-                             <p class="pt-1">¿Tienes una cuenta? <a href="#" class="blue-text">Acceso</a>
-                             </p>
-                         </div>
-                         <button type="button" class="btn btn-outline-info waves-effect ml-auto"
-                             data-dismiss="modal">Cerrar</button>
-                     </div>
-                 </div>
-                 <!--/.Panel 8-->
-             </div>
-
-         </div>
-     </div>
-     <!--/.Content-->
- </div>
-</div>
-<!--Modal: Login / Register Form-->
+                                <div class="md-form mb-4">
+                                    <input type="email" placeholder="Correo" id="modalLRInput10"
+                                        class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
 
 
- </div>
+                                    <div class="md-form mb-4">
+                                        <input type="password" placeholder="Contraseña" id="modalLRInput11"
+                                            class="form-control validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-info">Iniciar sesión</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-left mt-2">
+                                    <p>¿No tienes cuenta? <a href="#" class="blue-text">Registrarse</a></p>
+                                    <p>Olvidaste tú contraseña? <a href="#" class="blue-text">Click aquí.</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto"
+                                    data-dismiss="modal">Cerrar</button>
+                            </div>
+
+                        </div>
+                        <!--/.Panel 7-->
+
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        &nbsp;
+                                        <input type="text" placeholder="Nombre" class="form-control">
+                                    </div>
+                                    <div class="col-sm">
+                                        &nbsp;
+                                        <input type="text" placeholder="Apellido" class="form-control">
+                                    </div>
+                                </div>
+                                <div>
+                                    &nbsp;
+                                    <div class="md-form">                                        
+                                        <input type="email" id="modalLRInput12" placeholder="Correo"
+                                            class="form-control validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
+                                    </div>
+                                    &nbsp;
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <select class="browser-default custom-select">
+                                                    <option selected="">Tipo de documento</option>
+                                                    <option value="1">CUIT/CUIL</option>
+                                                    <option value="2">DNI</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm">
+                                                <input type="number" id="modalLRInput12" placeholder="DNI"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            &nbsp;
+                                            <input type="password" id="modalLRInput13" placeholder="Contraseña"
+                                                class="form-control validate">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13"></label>
+                                        </div>
+                                        &nbsp;
+                                        <div class="md-form form-sm">
+                                            <input type="password" id="modalLRInput14" placeholder="Repetir contraseña"
+                                                class="form-control validate">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
+                                        </div>
+                                        <div class="text-center form-sm mt-2">
+                                            <button class="btn btn-info">Registrarse</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Footer-->
+                                <br>
+                                <div class="modal-footer">
+                                    <div class="options text-right">
+                                        <p class="pt-1">¿Tienes una cuenta? <a href="#" class="blue-text">Acceso</a>
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto"
+                                        data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 8-->
+                        </div>
+
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Modal: Login / Register Form-->
+
+
+    </div>
 
 
 
@@ -227,70 +229,52 @@
     <!-- Slider -->
 
     <!-- Cartas-->
-
-    <div class="container">
-        <div id="cartas" class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="img/graph.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Lorem Ipsum</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc, placerat et rutrum eget, hendrerit eget arcu.</p>
-                    <a href="#" class="btn btn-primary">Link</a>
+    <div id="content-wrap">
+        <div class="container">
+            <div id="cartas" class="card-deck">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/graph.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem Ipsum</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc,
+                            placerat et rutrum eget, hendrerit eget arcu.</p>
+                        <a href="#" class="btn btn-primary">Link</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="img/graph2.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Lorem Ipsum</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc, placerat et rutrum eget, hendrerit eget arcu.</p>
-                    <a href="#" class="btn btn-primary">Link</a>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/graph2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem Ipsum</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc,
+                            placerat et rutrum eget, hendrerit eget arcu.</p>
+                        <a href="#" class="btn btn-primary">Link</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="img/graph3.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Lorem Ipsum</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc, placerat et rutrum eget, hendrerit eget arcu.</p>
-                    <a href="#" class="btn btn-primary">Link</a>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/graph3.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem Ipsum</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus nunc,
+                            placerat et rutrum eget, hendrerit eget arcu.</p>
+                        <a href="#" class="btn btn-primary">Link</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Cartas-->
-    <div class="jumbotron card card-image"style="background-image: url("")>
-        
-        <div class="text-white text-center py-5 px-4">
-            <div>
-                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Create your beautiful website with
-                        MDBootstrap</strong></h2>
-                <p class="mx-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
-                    voluptatem,
-                    optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos. Odit sed
-                    qui, dolorum!
-                </p>
-                <a class="btn btn-outline-white btn-md"><i class="fas fa-clone left"></i> View project</a>
-            </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Texto de ejemplo</span>
         </div>
-    </div>
-<!-- Footer -->
-<footer class="page-footer font-small cyan darken-3">
-
-    <!-- Footer Elements -->
-    <div class="container">
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> CLIP MONEY</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+    </footer>
 </body>
-<footer>
 
-</footer>
+
+
+
+
 
 </html>
