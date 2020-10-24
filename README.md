@@ -1,4 +1,4 @@
-#Proyecto CLIP Money, grupo 3c
+# Proyecto CLIP Money, grupo 3c
 #### Tecnologías utilizadas:
 - Bootstrap
 - SQL Server
