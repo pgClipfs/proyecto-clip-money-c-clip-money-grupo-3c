@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clipMoneyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cuenta">
+    <Key>
+      <PropertyRef Name="nroCuenta" />
+    </Key>
+    <Property Name="nroCuenta" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" />
+    <Property Name="cvu" Type="int" />
+    <Property Name="alias" Type="varchar(max)" />
+    <Property Name="tipoMoneda" Type="int" />
+    <Property Name="saldo" Type="numeric" Precision="38" Scale="9" />
+  </EntityType>
+  <EntityType Name="datosUsuario">
+    <Key>
+      <PropertyRef Name="usuarioId" />
+    </Key>
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="celular" Type="int" />
+    <Property Name="domicilio" Type="varchar(max)" />
+    <Property Name="localidad" Type="varchar" MaxLength="150" />
+    <Property Name="provincia" Type="varchar" MaxLength="100" />
+    <Property Name="pais" Type="varchar" MaxLength="50" />
+    <Property Name="cp" Type="smallint" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="fechaVencimiento" Type="smalldatetime" />
+    <Property Name="valor" Type="float" />
+  </EntityType>
+  <EntityType Name="inversion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="cuentaId" Type="int" />
+    <Property Name="usuarioId" Type="int" />
+    <Property Name="movimientoId" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="tipoMoneda" Type="int" />
+    <Property Name="taza" Type="float" />
+    <Property Name="fechaInicio" Type="smalldatetime" />
+    <Property Name="fechaFin" Type="smalldatetime" />
+    <Property Name="renovacion" Type="bit" />
+  </EntityType>
+  <EntityType Name="movimiento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="cuentaId" Type="int" />
+    <Property Name="tipoMovimiento" Type="int" />
+    <Property Name="monto" Type="numeric" Precision="38" Scale="9" />
+    <Property Name="fecha" Type="smalldatetime" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="pagoServicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="servicioId" Type="int" />
+    <Property Name="movimientoId" Type="int" />
+  </EntityType>
+  <EntityType Name="password">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" />
+    <Property Name="valor" Type="varchar(max)" />
+    <Property Name="fecha" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="facturaId" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipoMoneda">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="signo" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tipoMovimiento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="frente" Type="varchar(max)" />
+    <Property Name="dorso" Type="varchar(max)" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <Association Name="FK_cuenta_tipoMoneda">
+    <End Role="tipoMoneda" Type="Self.tipoMoneda" Multiplicity="0..1" />
+    <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoMoneda">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuenta">
+        <PropertyRef Name="tipoMoneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuenta_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="cuenta">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_datosUsuario_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="datosUsuario" Type="Self.datosUsuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="datosUsuario">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inversion_cuenta">
+    <End Role="cuenta" Type="Self.cuenta" Multiplicity="0..1" />
+    <End Role="inversion" Type="Self.inversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta">
+        <PropertyRef Name="nroCuenta" />
+      </Principal>
+      <Dependent Role="inversion">
+        <PropertyRef Name="cuentaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inversion_movimiento1">
+    <End Role="movimiento" Type="Self.movimiento" Multiplicity="0..1" />
+    <End Role="inversion" Type="Self.inversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movimiento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inversion">
+        <PropertyRef Name="movimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inversion_tipoMoneda">
+    <End Role="tipoMoneda" Type="Self.tipoMoneda" Multiplicity="0..1" />
+    <End Role="inversion" Type="Self.inversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoMoneda">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inversion">
+        <PropertyRef Name="tipoMoneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inversion_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="inversion" Type="Self.inversion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="inversion">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimiento_cuenta">
+    <End Role="cuenta" Type="Self.cuenta" Multiplicity="0..1" />
+    <End Role="movimiento" Type="Self.movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta">
+        <PropertyRef Name="nroCuenta" />
+      </Principal>
+      <Dependent Role="movimiento">
+        <PropertyRef Name="cuentaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimiento_tipoMovimiento">
+    <End Role="tipoMovimiento" Type="Self.tipoMovimiento" Multiplicity="0..1" />
+    <End Role="movimiento" Type="Self.movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoMovimiento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="movimiento">
+        <PropertyRef Name="tipoMovimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pagoServicio_movimiento">
+    <End Role="movimiento" Type="Self.movimiento" Multiplicity="0..1" />
+    <End Role="pagoServicio" Type="Self.pagoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movimiento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pagoServicio">
+        <PropertyRef Name="movimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pagoServicio_servicio">
+    <End Role="servicio" Type="Self.servicio" Multiplicity="0..1" />
+    <End Role="pagoServicio" Type="Self.pagoServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pagoServicio">
+        <PropertyRef Name="servicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_password_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="password" Type="Self.password" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="password">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_servicio_factura">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="servicio">
+        <PropertyRef Name="facturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="clipMoneyModelStoreContainer">
+    <EntitySet Name="cuenta" EntityType="Self.cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="datosUsuario" EntityType="Self.datosUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inversion" EntityType="Self.inversion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movimiento" EntityType="Self.movimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pagoServicio" EntityType="Self.pagoServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="password" EntityType="Self.password" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicio" EntityType="Self.servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoMoneda" EntityType="Self.tipoMoneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoMovimiento" EntityType="Self.tipoMovimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cuenta_tipoMoneda" Association="Self.FK_cuenta_tipoMoneda">
+      <End Role="tipoMoneda" EntitySet="tipoMoneda" />
+      <End Role="cuenta" EntitySet="cuenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuenta_usuario" Association="Self.FK_cuenta_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="cuenta" EntitySet="cuenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_datosUsuario_usuario" Association="Self.FK_datosUsuario_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="datosUsuario" EntitySet="datosUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inversion_cuenta" Association="Self.FK_inversion_cuenta">
+      <End Role="cuenta" EntitySet="cuenta" />
+      <End Role="inversion" EntitySet="inversion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inversion_movimiento1" Association="Self.FK_inversion_movimiento1">
+      <End Role="movimiento" EntitySet="movimiento" />
+      <End Role="inversion" EntitySet="inversion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inversion_tipoMoneda" Association="Self.FK_inversion_tipoMoneda">
+      <End Role="tipoMoneda" EntitySet="tipoMoneda" />
+      <End Role="inversion" EntitySet="inversion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inversion_usuario" Association="Self.FK_inversion_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="inversion" EntitySet="inversion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimiento_cuenta" Association="Self.FK_movimiento_cuenta">
+      <End Role="cuenta" EntitySet="cuenta" />
+      <End Role="movimiento" EntitySet="movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimiento_tipoMovimiento" Association="Self.FK_movimiento_tipoMovimiento">
+      <End Role="tipoMovimiento" EntitySet="tipoMovimiento" />
+      <End Role="movimiento" EntitySet="movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pagoServicio_movimiento" Association="Self.FK_pagoServicio_movimiento">
+      <End Role="movimiento" EntitySet="movimiento" />
+      <End Role="pagoServicio" EntitySet="pagoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pagoServicio_servicio" Association="Self.FK_pagoServicio_servicio">
+      <End Role="servicio" EntitySet="servicio" />
+      <End Role="pagoServicio" EntitySet="pagoServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_password_usuario" Association="Self.FK_password_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="password" EntitySet="password" />
+    </AssociationSet>
+    <AssociationSet Name="FK_servicio_factura" Association="Self.FK_servicio_factura">
+      <End Role="factura" EntitySet="factura" />
+      <End Role="servicio" EntitySet="servicio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

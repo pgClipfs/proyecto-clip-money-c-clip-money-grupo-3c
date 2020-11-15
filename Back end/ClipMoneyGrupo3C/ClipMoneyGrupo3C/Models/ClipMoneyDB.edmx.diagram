@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cdcad03713ac4cbd8e508997085b15ba" Name="Diagram1">
+        <EntityTypeShape EntityType="clipMoneyModel.cuenta" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.datosUsuario" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.factura" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.inversion" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.movimiento" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.pagoServicio" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.password" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.servicio" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.tipoMoneda" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.tipoMovimiento" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clipMoneyModel.usuario" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="clipMoneyModel.FK_cuenta_tipoMoneda" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_cuenta_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_inversion_cuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_movimiento_cuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_datosUsuario_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_servicio_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_inversion_movimiento1" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_inversion_tipoMoneda" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_inversion_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_movimiento_tipoMovimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_pagoServicio_movimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_pagoServicio_servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="clipMoneyModel.FK_password_usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
