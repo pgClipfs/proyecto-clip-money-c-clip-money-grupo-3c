@@ -25,6 +25,7 @@ namespace ClipMoney3C.Services
 
         public Task Execute(string apiKey, string subject, string message, string email)
         {
+            //var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {

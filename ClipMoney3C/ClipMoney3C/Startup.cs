@@ -37,6 +37,9 @@ namespace ClipMoney3C
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.Configure<DataProtectionTokenProviderOptions>(o =>
+            o.TokenLifespan = System.TimeSpan.FromHours(3));
+
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
