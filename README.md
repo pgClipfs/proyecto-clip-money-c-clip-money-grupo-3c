@@ -12,3 +12,4 @@
 - Lucas Marengo: https://github.com/lmarengo22
 - Lautaro Brito
 - Jesica Aramayo: https://github.com/Jesica-A
+- Juan Ignacio Navarro: https://github.com/JuanIgnacio95
