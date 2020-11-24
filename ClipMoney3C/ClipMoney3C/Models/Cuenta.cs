@@ -7,5 +7,9 @@ namespace ClipMoney3C.Models
 {
     public class Cuenta
     {
+        public long ID { get; set; }
+        public string OwnerId { get; set; }
+        public double Saldo { get; set; }
+
     }
 }

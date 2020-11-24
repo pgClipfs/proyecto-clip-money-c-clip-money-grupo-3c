@@ -18,6 +18,6 @@ namespace ClipMoney3C.Data
         {
         }
 
-        //public DbSet<ApplicationUser> Users { get; set; }
+        public DbSet<Cuenta> Cuentas { get; set; }
     }
 }
