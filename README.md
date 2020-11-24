@@ -13,3 +13,4 @@
 - Lautaro Brito
 - Jesica Aramayo: https://github.com/Jesica-A
 - Juan Ignacio Navarro: https://github.com/JuanIgnacio95
+- Manuel Maccaglia: https://github.com/manumaccaglia
