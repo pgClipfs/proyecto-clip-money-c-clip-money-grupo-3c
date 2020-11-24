@@ -2,7 +2,7 @@
 
 namespace ClipMoney3C.Data.Migrations
 {
-    public partial class CuentaUserID : Migration
+    public partial class change : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

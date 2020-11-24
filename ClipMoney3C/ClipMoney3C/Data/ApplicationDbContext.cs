@@ -18,6 +18,15 @@ namespace ClipMoney3C.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<DatosUsuario>().HasKey(x => new { x.Dni});
+
+
+        }
+
         public DbSet<Cuenta> Cuentas { get; set; }
+        public DbSet<DatosUsuario> DatosUsuarios{ get; set; }
     }
 }
