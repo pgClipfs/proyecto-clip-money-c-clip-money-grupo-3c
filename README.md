@@ -1,11 +1,11 @@
 # Proyecto CLIP Money, grupo 3c
 #### Tecnologías utilizadas:
-- Bootstrap
+- Angular
+- .NET Core 5
 - SQL Server
-- .NET Core
 #### Herramientas utilizadas:
+- Microsoft Visual Studio 2019
 - Microsoft SQL Server Management Studio
-- VS Code
 - Trello: https://github.com/lautarojgarcia177
 #### Autores:
 - Lautaro Garcia: https://github.com/lautarojgarcia177
