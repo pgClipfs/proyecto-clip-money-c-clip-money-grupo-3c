@@ -10,3 +10,4 @@
 #### Autores:
 - Lautaro Garcia: https://github.com/lautarojgarcia177
 - Lucas Marengo: https://github.com/lmarengo22
+- Lautaro Brito
