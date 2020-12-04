@@ -41,7 +41,7 @@ namespace ClipMoney3C
             o.TokenLifespan = System.TimeSpan.FromHours(3));
 
             services.AddTransient<IEmailSender, EmailSender>();
-            //services.Configure<AuthMessageSenderOptions>(Configuration);
+            services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
